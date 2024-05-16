@@ -80,6 +80,10 @@ To kill and remove the emulator:
 ```
 docker container rm -f androidemu
 ```
+It's also a good idea to auto start the docker container after the next reboot:
+```
+echo -e "[Unit]\nDescription=Start Android Emulator Docker Container\nAfter=docker.service\nRequires=docker.service\n\n[Service]\nExecStart=/usr/bin/docker start androidemu\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" | sudo tee /etc/systemd/system/androidemu.service > /dev/null && sudo systemctl daemon-reload && sudo systemctl enable androidemu.service && sudo systemctl start androidemu.service
+```
 
 ## Local Screen Connect
 To connect to the device screen, use SSH tunnelling to forward the ADB port on the Azure machine:

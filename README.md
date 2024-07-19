@@ -45,7 +45,7 @@ binder_linux          225280  88
 ## ADB
 Install ADB to be able to connect to the device:
 ```
-sudo apt-get update -y && apt-get install android-tools-adb -y
+sudo apt-get update -y && sudo apt-get install android-tools-adb -y
 ```
 ### Example Helpful ADB Commands
 If you need to run as root on the device. You may need to reconnect to the device after this:
